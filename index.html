@@ -197,48 +197,141 @@ End teaser video
 </section>
 <!-- End Project Progress Section -->
 
-<!-- Image carousel -->
+<!-- Phase 2 Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Phase 2: Domain-Specific Model Development</h3>
+        <div class="content has-text-justified">
+          <p>
+            We have made significant progress in Phase 2, focusing on data preprocessing and adapting SAM for industrial anomaly detection. Our work has successfully addressed several technical challenges:
+          </p>
+          
+          <h4 class="title is-5">Data Preprocessing Innovations</h4>
+          <ul>
+            <li><strong>Input Resolution Standardization:</strong> SAM requires 1024×1024 resolution inputs, but industrial images come in various dimensions. We implemented a robust preprocessing pipeline that preserves aspect ratios while meeting SAM's requirements:</li>
+            <ul>
+              <li>For non-square images, we apply careful padding to both images and their corresponding ground truth masks, ensuring spatial relationships are maintained</li>
+              <li>This approach preserves the relative size and location of anomalies, which is critical for accurate segmentation</li>
+            </ul>
+            
+            <li><strong>Multiple Anomaly Handling:</strong> Industrial images often contain multiple anomalies with separate bounding boxes. We developed a sophisticated approach to handle these cases:</li>
+            <ul>
+              <li>For images with multiple anomalies, we create individual copies of the image-mask pairs for each anomaly</li>
+              <li>This transformation allows the model to focus on one anomaly at a time, simplifying the learning task while preserving the original image context</li>
+              <li>During inference, predictions from multiple instances are intelligently merged to provide a complete anomaly map</li>
+            </ul>
+          </ul>
+          
+          <h4 class="title is-5">Dataset Preparation</h4>
+          <p>
+            Our preprocessing pipeline has been successfully applied to multiple industrial anomaly datasets, including MVTec AD and other domain-specific collections. This standardization enables:
+          </p>
+          <ul>
+            <li>Consistent training across diverse industrial products and defect types</li>
+            <li>Effective utilization of SAM's existing capabilities while adapting to industrial anomaly detection</li>
+            <li>Creation of a robust foundation for the upcoming RLHF training phase</li>
+          </ul>
+          
+          <p>
+            As we complete Phase 2, we are preparing to initiate the RLHF pipeline development. The standardized dataset will serve as the foundation for generating multiple segmentation candidates per image, which will then be ranked by human annotators to train our reward model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Phase 2 Section -->
+
+<!-- Image carousel section with summaries -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="SAM Anomaly Segmentation Comparison1"/>
+        <img src="static/images/carousel1.jpg" alt="SAM Anomaly Segmentation - Bottle"/>
         <h2 class="subtitle has-text-centered">
-          <strong>SAM Anomaly Segmentation Comparison1 Bottle</strong><br>
-          Comparison of SAM performance on anomaly segmentation: (1) Original image with anomaly, (2) Ground truth segmentation mask, (3-5) Three prediction results from SAM showing its limitations in accurately detecting and segmenting industrial anomalies compared to the ground truth.
+          <strong>Good Segmentation, High Confidence - Bottle</strong><br>
+          SAM correctly identifies and segments the anomaly with high confidence, showing its potential when anomalies have clear boundaries and distinct features from the background.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/carousel2.jpg" alt="SAM Anomaly Segmentation - Capsule"/>
         <h2 class="subtitle has-text-centered">
-          <strong>SAM Anomaly Segmentation Comparison2 Capsule</strong><br>
-
-          Comparison of SAM performance on anomaly segmentation: (1) Original image with anomaly, (2) Ground truth segmentation mask, (3-5) Three prediction results from SAM showing its limitations in accurately detecting and segmenting industrial anomalies compared to the ground truth.
+          <strong>Poor Segmentation, High Confidence - Carpet</strong><br>
+          SAM incorrectly segments the anomaly while expressing high confidence, demonstrating how misleading confidence scores can be for textured surfaces where anomalies have subtle differences from the background pattern.
         </h2>
       </div>
-      <!-- <div class="item">
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+      <div class="item">
+        <img src="static/images/carousel3.jpg" alt="SAM Anomaly Segmentation - Hazelnut"/>
         <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div> -->
+          <strong>Good Segmentation, Low Confidence - Hazelnut</strong><br>
+          SAM accurately detects the anomaly but with low confidence, showing how even correct predictions can be uncertain, suggesting potential for performance improvement through confidence calibration.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel4.jpg" alt="SAM Anomaly Segmentation - Plate"/>
+        <h2 class="subtitle has-text-centered">
+          <strong>Poor Segmentation, Low Confidence - Plate</strong><br>
+          SAM fails to detect the anomaly and expresses low confidence, highlighting the most challenging case where both segmentation and confidence need improvement through specialized training.
+        </h2>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 </section>
 <!-- End image carousel -->
 
-
-
+<!-- Phase 1 Conclusion Section -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Phase 1 Conclusions</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our comprehensive benchmarking of SAM across various industrial anomaly datasets reveals critical insights about its capabilities and limitations:
+          </p>
+          
+          <h3 class="title is-5">Object Segmentation vs. Anomaly Detection</h3>
+          <p>
+            SAM demonstrates exceptional proficiency in general object segmentation tasks where objects have clear boundaries and distinct features. However, it struggles significantly with industrial anomaly detection for several reasons:
+          </p>
+          <ul>
+            <li>Anomalies often present subtle variations from normal appearances rather than distinct object boundaries</li>
+            <li>SAM's training data primarily focused on natural images rather than industrial surfaces and defects</li>
+            <li>The zero-shot nature of SAM lacks domain-specific knowledge about what constitutes an "anomaly" in different industrial contexts</li>
+          </ul>
+          
+          <h3 class="title is-5">Confidence Calibration Issues</h3>
+          <p>
+            Our analysis revealed a critical disconnect between SAM's segmentation performance and its confidence scores. In many cases, SAM produces high-confidence predictions for incorrectly segmented anomalies (as demonstrated in the carpet example) or low-confidence predictions for correctly identified anomalies (as shown in the hazelnut example). This misalignment between confidence and accuracy presents an opportunity for RLHF to improve the model by:
+          </p>
+          <ul>
+            <li>Calibrating confidence scores to better reflect prediction quality</li>
+            <li>Learning from human feedback about what constitutes a correct anomaly segmentation</li>
+            <li>Adjusting the decision boundary between normal and anomalous regions based on expert guidance</li>
+          </ul>
+          
+          <h3 class="title is-5">Performance Pattern Analysis</h3>
+          <p>
+            Our evaluation revealed distinct patterns in SAM's performance:
+          </p>
+          <ul>
+            <li><strong>Good performance cases:</strong> SAM excels when anomalies have high contrast, clear boundaries, or represent a significant structural change from the normal object (as seen in the bottle example)</li>
+            <li><strong>Poor performance cases:</strong> SAM struggles with textured surfaces (carpet), subtle color variations, small anomalies, or cases where the anomaly resembles normal variations in the product (plate)</li>
+          </ul>
+          
+          <p>
+            These findings strongly suggest that RLHF can significantly improve SAM's anomaly detection capabilities by leveraging human expertise to correct both segmentation errors and confidence miscalibrations. By learning from expert feedback on diverse anomaly types, we can transform SAM from a general-purpose segmentation model into a specialized industrial anomaly detector that accurately identifies defects while properly calibrating its confidence in challenging edge cases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Phase 1 Conclusion Section -->
 
 <!-- 
 Youtube video
