@@ -1,94 +1,131 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="DESCRIPTION META TAG" />
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+    <meta
+      property="og:description"
+      content="SOCIAL MEDIA DESCRIPTION TAG TAG"
+    />
+    <meta property="og:url" content="URL OF THE WEBSITE" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/image/your_banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
+    <meta
+      name="twitter:description"
+      content="TWITTER BANNER DESCRIPTION META TAG"
+    />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta
+      name="twitter:image"
+      content="static/images/your_twitter_banner_image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Towards Smarter Segmentation: Improving SAM's Anomaly Understanding with
+      RLHF
+    </title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
 
-  <title>Towards Smarter Segmentation: Improving SAM's Anomaly Understanding with RLHF</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-</head>
-<body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Towards Smarter Segmentation: Improving SAM's Anomaly Understanding with RLHF</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="Wan Wang PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Towards Smarter Segmentation: Improving SAM's Anomaly
+                Understanding with RLHF
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
                 <span class="author-block">
-                  <a href="https://github.com/novia-aa" target="_blank">Yu-Tong Chuang</a><sup>*</sup>,
+                  <a href="Wan Wang PERSONAL LINK" target="_blank"
+                    >First Author</a
+                  ><sup>*</sup>,</span
+                >
+                <span class="author-block">
+                  <a href="https://github.com/novia-aa" target="_blank"
+                    >Yu-Tong Chuang</a
+                  ><sup>*</sup>,
                 </span>
                 <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a><sup>*</sup>,
+                  <a href="https://github.com/Charlesczc" target="_blank"
+                    >Yiu Chang</a
+                  ><sup>*</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank"
+                    >Fouth Author</a
+                  ><sup>*</sup>,</span
+                >
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"
+                  >University of Minnesota, Twin Cities<br
+                /></span>
+                <span class="eql-cntrb"
+                  ><small
+                    ><br /><sup>*</sup>Indicates Equal Contribution</small
+                  ></span
+                >
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
                   </span>
-                  <span class="author-block">
-                    <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank">Fouth Author</a><sup>*</sup>,</span>
-                  </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">University of Minnesota, Twin Cities<br></span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                  <!-- Supplementary PDF link -->
+                  <span class="link-block">
+                    <a
+                      href="static/pdfs/supplementary_material.pdf"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
@@ -98,35 +135,40 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/slmowan/sam-finetune.git" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                    <a
+                      href="https://github.com/slmowan/sam-finetune.git"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/abs/<ARXIV PAPER ID>"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- 
+    <!-- 
 Teaser video
 <section class="hero teaser">
   <div class="container is-max-desktop">
@@ -145,221 +187,381 @@ Teaser video
 End teaser video 
 -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Industrial anomaly detection relies heavily on precise segmentation, yet quality labeled data is scarce due to high annotation costs. The Segment Anything Model (SAM), despite robust zero-shot capabilities, struggles to effectively detect anomalies. This project introduces Reinforcement Learning with Human Feedback (RLHF) to improve SAM's anomaly segmentation. By incorporating expert human feedback into training via a reward model and reinforcement learning (PPO), our method significantly enhances SAM's accuracy for anomaly detection. This work pioneers human-feedback-driven fine-tuning for vision foundation models, aiming for practical, efficient anomaly segmentation in industrial applications.
-          </p>
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Industrial anomaly detection relies heavily on precise
+                segmentation, yet quality labeled data is scarce due to high
+                annotation costs. The Segment Anything Model (SAM), despite
+                robust zero-shot capabilities, struggles to effectively detect
+                anomalies. This project introduces Reinforcement Learning with
+                Human Feedback (RLHF) to improve SAM's anomaly segmentation. By
+                incorporating expert human feedback into training via a reward
+                model and reinforcement learning (PPO), our method significantly
+                enhances SAM's accuracy for anomaly detection. This work
+                pioneers human-feedback-driven fine-tuning for vision foundation
+                models, aiming for practical, efficient anomaly segmentation in
+                industrial applications.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
+    <!-- End paper abstract -->
 
-<!-- Project Progress Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Project Progress</h2>
-        
-        <!-- Phase 1 -->
-        <h3 class="title is-4">Phase 1: Benchmarking SAM's Anomaly Segmentation</h3>
-        <div class="content has-text-justified">
-          <p>
-            We have successfully completed the first phase of our project, focusing on establishing SAM's baseline performance on anomaly segmentation tasks. Our evaluation revealed several key insights:
-          </p>
-          
-          <ul>
-            <li><strong>Dataset Preparation:</strong> We processed multiple industrial anomaly detection datasets, standardizing formats and annotations to ensure consistent evaluation.</li>
-            
-            <li><strong>Performance Analysis:</strong> While SAM excels at general segmentation tasks, we identified systematic limitations when handling industrial anomalies, particularly subtle surface defects and texture irregularities.</li>
-            
-            <li><strong>Failure Case Categorization:</strong> We categorized SAM's failure patterns into three main types: missed detections (false negatives), imprecise boundary delineation, and over-segmentation of normal regions.</li>
-            
-            <li><strong>Confidence Analysis:</strong> We measured SAM's prediction confidence across different types of anomalies, revealing that SAM often exhibits high confidence even for incorrect segmentations, highlighting the need for domain-specific adaptation.</li>
-          </ul>
-          
-          <p>
-            These findings establish a critical baseline for measuring improvement in subsequent phases and confirm our hypothesis that while powerful, foundation models like SAM require specialized fine-tuning to excel at domain-specific tasks like industrial anomaly detection.
-          </p>
-          
-          <p>
-            Moving forward, we are now working on Phase 2, developing a domain-specific baseline model inspired by MedSAM's approach to medical image segmentation, adapting these techniques to the industrial anomaly context.
-          </p>
+    <!-- Project Progress Section -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Project Progress</h2>
+
+            <!-- Phase 1 -->
+            <h3 class="title is-4">
+              Phase 1: Benchmarking SAM's Anomaly Segmentation
+            </h3>
+            <div class="content has-text-justified">
+              <p>
+                We have successfully completed the first phase of our project,
+                focusing on establishing SAM's baseline performance on anomaly
+                segmentation tasks. Our evaluation revealed several key
+                insights:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Dataset Preparation:</strong> We processed multiple
+                  industrial anomaly detection datasets, standardizing formats
+                  and annotations to ensure consistent evaluation.
+                </li>
+
+                <li>
+                  <strong>Performance Analysis:</strong> While SAM excels at
+                  general segmentation tasks, we identified systematic
+                  limitations when handling industrial anomalies, particularly
+                  subtle surface defects and texture irregularities.
+                </li>
+
+                <li>
+                  <strong>Failure Case Categorization:</strong> We categorized
+                  SAM's failure patterns into three main types: missed
+                  detections (false negatives), imprecise boundary delineation,
+                  and over-segmentation of normal regions.
+                </li>
+
+                <li>
+                  <strong>Confidence Analysis:</strong> We measured SAM's
+                  prediction confidence across different types of anomalies,
+                  revealing that SAM often exhibits high confidence even for
+                  incorrect segmentations, highlighting the need for
+                  domain-specific adaptation.
+                </li>
+              </ul>
+
+              <p>
+                These findings establish a critical baseline for measuring
+                improvement in subsequent phases and confirm our hypothesis that
+                while powerful, foundation models like SAM require specialized
+                fine-tuning to excel at domain-specific tasks like industrial
+                anomaly detection.
+              </p>
+
+              <p>
+                Moving forward, we are now working on Phase 2, developing a
+                domain-specific baseline model inspired by MedSAM's approach to
+                medical image segmentation, adapting these techniques to the
+                industrial anomaly context.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End Project Progress Section -->
+    </section>
+    <!-- End Project Progress Section -->
 
-<!-- Image carousel section with summaries -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <img src="static/images/carousel1.jpg" alt="SAM Anomaly Segmentation - Bottle"/>
-        <h2 class="subtitle has-text-centered">
-          <strong>Good Segmentation, High Confidence - Bottle</strong><br>
-          SAM correctly identifies and segments the anomaly with high confidence, showing its potential when anomalies have clear boundaries and distinct features from the background.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel2.jpg" alt="SAM Anomaly Segmentation - Capsule"/>
-        <h2 class="subtitle has-text-centered">
-          <strong>Poor Segmentation, High Confidence - Carpet</strong><br>
-          SAM incorrectly segments the anomaly while expressing high confidence, demonstrating how misleading confidence scores can be for textured surfaces where anomalies have subtle differences from the background pattern.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel3.jpg" alt="SAM Anomaly Segmentation - Hazelnut"/>
-        <h2 class="subtitle has-text-centered">
-          <strong>Good Segmentation, Low Confidence - Hazelnut</strong><br>
-          SAM accurately detects the anomaly but with low confidence, showing how even correct predictions can be uncertain, suggesting potential for performance improvement through confidence calibration.
-        </h2>
-      </div>
-      <div class="item">
-        <img src="static/images/carousel4.jpg" alt="SAM Anomaly Segmentation - Plate"/>
-        <h2 class="subtitle has-text-centered">
-          <strong>Poor Segmentation, Low Confidence - Plate</strong><br>
-          SAM fails to detect the anomaly and expresses low confidence, highlighting the most challenging case where both segmentation and confidence need improvement through specialized training.
-        </h2>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<!-- End image carousel -->
-
-<!-- Phase 2 Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Phase 2: Domain-Specific Model Development</h3>
-        <div class="content has-text-justified">
-          <p>
-            We have made significant progress in Phase 2, focusing on data preprocessing and adapting SAM for industrial anomaly detection. Our work has successfully addressed several technical challenges:
-          </p>
-          
-          <h4 class="title is-5">Data Preprocessing Innovations</h4>
-          <ul>
-            <li><strong>Input Resolution Standardization:</strong> SAM requires 1024×1024 resolution inputs, but industrial images come in various dimensions. We implemented a robust preprocessing pipeline that preserves aspect ratios while meeting SAM's requirements:</li>
-            <ul>
-              <li>For non-square images, we apply careful padding to both images and their corresponding ground truth masks, ensuring spatial relationships are maintained</li>
-              <li>This approach preserves the relative size and location of anomalies, which is critical for accurate segmentation</li>
-            </ul>
-            
-            <li><strong>Multiple Anomaly Handling:</strong> Industrial images often contain multiple anomalies with separate bounding boxes. We developed a sophisticated approach to handle these cases:</li>
-            <ul>
-              <li>For images with multiple anomalies, we create individual copies of the image-mask pairs for each anomaly</li>
-              <li>This transformation allows the model to focus on one anomaly at a time, simplifying the learning task while preserving the original image context</li>
-              <li>During inference, predictions from multiple instances are intelligently merged to provide a complete anomaly map</li>
-            </ul>
-          </ul>
-          
-          <h4 class="title is-5">Dataset Preparation</h4>
-          <p>
-            Our preprocessing pipeline has been successfully applied to multiple industrial anomaly datasets, including MVTec AD and other domain-specific collections. This standardization enables:
-          </p>
-          <ul>
-            <li>Consistent training across diverse industrial products and defect types</li>
-            <li>Effective utilization of SAM's existing capabilities while adapting to industrial anomaly detection</li>
-            <li>Creation of a robust foundation for the upcoming RLHF training phase</li>
-          </ul>
-          
-          <p>
-            As we complete Phase 2, we are preparing to initiate the RLHF pipeline development. The standardized dataset will serve as the foundation for generating multiple segmentation candidates per image, which will then be ranked by human annotators to train our reward model.
-          </p>
+    <!-- Image carousel section with summaries -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <img
+                src="static/images/carousel1.jpg"
+                alt="SAM Anomaly Segmentation - Bottle"
+              />
+              <h2 class="subtitle has-text-centered">
+                <strong>Good Segmentation, High Confidence - Bottle</strong
+                ><br />
+                SAM correctly identifies and segments the anomaly with high
+                confidence, showing its potential when anomalies have clear
+                boundaries and distinct features from the background.
+              </h2>
+            </div>
+            <div class="item">
+              <img
+                src="static/images/carousel2.jpg"
+                alt="SAM Anomaly Segmentation - Capsule"
+              />
+              <h2 class="subtitle has-text-centered">
+                <strong>Poor Segmentation, High Confidence - Carpet</strong
+                ><br />
+                SAM incorrectly segments the anomaly while expressing high
+                confidence, demonstrating how misleading confidence scores can
+                be for textured surfaces where anomalies have subtle differences
+                from the background pattern.
+              </h2>
+            </div>
+            <div class="item">
+              <img
+                src="static/images/carousel3.jpg"
+                alt="SAM Anomaly Segmentation - Hazelnut"
+              />
+              <h2 class="subtitle has-text-centered">
+                <strong>Good Segmentation, Low Confidence - Hazelnut</strong
+                ><br />
+                SAM accurately detects the anomaly but with low confidence,
+                showing how even correct predictions can be uncertain,
+                suggesting potential for performance improvement through
+                confidence calibration.
+              </h2>
+            </div>
+            <div class="item">
+              <img
+                src="static/images/carousel4.jpg"
+                alt="SAM Anomaly Segmentation - Plate"
+              />
+              <h2 class="subtitle has-text-centered">
+                <strong>Poor Segmentation, Low Confidence - Plate</strong><br />
+                SAM fails to detect the anomaly and expresses low confidence,
+                highlighting the most challenging case where both segmentation
+                and confidence need improvement through specialized training.
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End Phase 2 Section -->
+    </section>
+    <!-- End image carousel -->
 
+    <!-- Phase 2 Section -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-4">
+              Phase 2: Domain-Specific Model Development
+            </h3>
+            <div class="content has-text-justified">
+              <p>
+                We have made significant progress in Phase 2, focusing on data
+                preprocessing and adapting SAM for industrial anomaly detection.
+                Our work has successfully addressed several technical
+                challenges:
+              </p>
 
-<!-- Phase 1 Conclusion Section -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Phase 1 Conclusions</h2>
-        <div class="content has-text-justified">
-          <p>
-            Our comprehensive benchmarking of SAM across various industrial anomaly datasets reveals critical insights about its capabilities and limitations:
-          </p>
-          
-          <h3 class="title is-5">Object Segmentation vs. Anomaly Detection</h3>
-          <p>
-            SAM demonstrates exceptional proficiency in general object segmentation tasks where objects have clear boundaries and distinct features. However, it struggles significantly with industrial anomaly detection for several reasons:
-          </p>
-          <ul>
-            <li>Anomalies often present subtle variations from normal appearances rather than distinct object boundaries</li>
-            <li>SAM's training data primarily focused on natural images rather than industrial surfaces and defects</li>
-            <li>The zero-shot nature of SAM lacks domain-specific knowledge about what constitutes an "anomaly" in different industrial contexts</li>
-          </ul>
-          
-          <h3 class="title is-5">Confidence Calibration Issues</h3>
-          <p>
-            Our analysis revealed a critical disconnect between SAM's segmentation performance and its confidence scores. In many cases, SAM produces high-confidence predictions for incorrectly segmented anomalies (as demonstrated in the carpet example) or low-confidence predictions for correctly identified anomalies (as shown in the hazelnut example). This misalignment between confidence and accuracy presents an opportunity for RLHF to improve the model by:
-          </p>
-          <ul>
-            <li>Calibrating confidence scores to better reflect prediction quality</li>
-            <li>Learning from human feedback about what constitutes a correct anomaly segmentation</li>
-            <li>Adjusting the decision boundary between normal and anomalous regions based on expert guidance</li>
-          </ul>
-          
-          <h3 class="title is-5">Performance Pattern Analysis</h3>
-          <p>
-            Our evaluation revealed distinct patterns in SAM's performance:
-          </p>
-          <ul>
-            <li><strong>Good performance cases:</strong> SAM excels when anomalies have high contrast, clear boundaries, or represent a significant structural change from the normal object (as seen in the bottle example)</li>
-            <li><strong>Poor performance cases:</strong> SAM struggles with textured surfaces (carpet), subtle color variations, small anomalies, or cases where the anomaly resembles normal variations in the product (plate)</li>
-          </ul>
-          
-          <p>
-            These findings strongly suggest that RLHF can significantly improve SAM's anomaly detection capabilities by leveraging human expertise to correct both segmentation errors and confidence miscalibrations. By learning from expert feedback on diverse anomaly types, we can transform SAM from a general-purpose segmentation model into a specialized industrial anomaly detector that accurately identifies defects while properly calibrating its confidence in challenging edge cases.
-          </p>
+              <h4 class="title is-5">Data Preprocessing Innovations</h4>
+              <ul>
+                <li>
+                  <strong>Input Resolution Standardization:</strong> SAM
+                  requires 1024×1024 resolution inputs, but industrial images
+                  come in various dimensions. We implemented a robust
+                  preprocessing pipeline that preserves aspect ratios while
+                  meeting SAM's requirements:
+                </li>
+                <ul>
+                  <li>
+                    For non-square images, we apply careful padding to both
+                    images and their corresponding ground truth masks, ensuring
+                    spatial relationships are maintained
+                  </li>
+                  <li>
+                    This approach preserves the relative size and location of
+                    anomalies, which is critical for accurate segmentation
+                  </li>
+                </ul>
+
+                <li>
+                  <strong>Multiple Anomaly Handling:</strong> Industrial images
+                  often contain multiple anomalies with separate bounding boxes.
+                  We developed a sophisticated approach to handle these cases:
+                </li>
+                <ul>
+                  <li>
+                    For images with multiple anomalies, we create individual
+                    copies of the image-mask pairs for each anomaly
+                  </li>
+                  <li>
+                    This transformation allows the model to focus on one anomaly
+                    at a time, simplifying the learning task while preserving
+                    the original image context
+                  </li>
+                  <li>
+                    During inference, predictions from multiple instances are
+                    intelligently merged to provide a complete anomaly map
+                  </li>
+                </ul>
+              </ul>
+
+              <h4 class="title is-5">Dataset Preparation</h4>
+              <p>
+                Our preprocessing pipeline has been successfully applied to
+                multiple industrial anomaly datasets, including MVTec AD and
+                other domain-specific collections. This standardization enables:
+              </p>
+              <ul>
+                <li>
+                  Consistent training across diverse industrial products and
+                  defect types
+                </li>
+                <li>
+                  Effective utilization of SAM's existing capabilities while
+                  adapting to industrial anomaly detection
+                </li>
+                <li>
+                  Creation of a robust foundation for the upcoming RLHF training
+                  phase
+                </li>
+              </ul>
+
+              <p>
+                As we complete Phase 2, we are preparing to initiate the RLHF
+                pipeline development. The standardized dataset will serve as the
+                foundation for generating multiple segmentation candidates per
+                image, which will then be ranked by human annotators to train
+                our reward model.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End Phase 1 Conclusion Section -->
+    </section>
+    <!-- End Phase 2 Section -->
 
+    <!-- Phase 1 Conclusion Section -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Phase 1 Conclusions</h2>
+            <div class="content has-text-justified">
+              <p>
+                Our comprehensive benchmarking of SAM across various industrial
+                anomaly datasets reveals critical insights about its
+                capabilities and limitations:
+              </p>
 
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Phase 2 Conclusions</h2>
-        <div class="content has-text-justified">
-          <p>
-            Our data preprocessing and standardization efforts have laid a crucial foundation for improving SAM's performance in industrial anomaly detection:
-          </p>
-          
-          
-          
+              <h3 class="title is-5">
+                Object Segmentation vs. Anomaly Detection
+              </h3>
+              <p>
+                SAM demonstrates exceptional proficiency in general object
+                segmentation tasks where objects have clear boundaries and
+                distinct features. However, it struggles significantly with
+                industrial anomaly detection for several reasons:
+              </p>
+              <ul>
+                <li>
+                  Anomalies often present subtle variations from normal
+                  appearances rather than distinct object boundaries
+                </li>
+                <li>
+                  SAM's training data primarily focused on natural images rather
+                  than industrial surfaces and defects
+                </li>
+                <li>
+                  The zero-shot nature of SAM lacks domain-specific knowledge
+                  about what constitutes an "anomaly" in different industrial
+                  contexts
+                </li>
+              </ul>
 
+              <h3 class="title is-5">Confidence Calibration Issues</h3>
+              <p>
+                Our analysis revealed a critical disconnect between SAM's
+                segmentation performance and its confidence scores. In many
+                cases, SAM produces high-confidence predictions for incorrectly
+                segmented anomalies (as demonstrated in the carpet example) or
+                low-confidence predictions for correctly identified anomalies
+                (as shown in the hazelnut example). This misalignment between
+                confidence and accuracy presents an opportunity for RLHF to
+                improve the model by:
+              </p>
+              <ul>
+                <li>
+                  Calibrating confidence scores to better reflect prediction
+                  quality
+                </li>
+                <li>
+                  Learning from human feedback about what constitutes a correct
+                  anomaly segmentation
+                </li>
+                <li>
+                  Adjusting the decision boundary between normal and anomalous
+                  regions based on expert guidance
+                </li>
+              </ul>
 
+              <h3 class="title is-5">Performance Pattern Analysis</h3>
+              <p>
+                Our evaluation revealed distinct patterns in SAM's performance:
+              </p>
+              <ul>
+                <li>
+                  <strong>Good performance cases:</strong> SAM excels when
+                  anomalies have high contrast, clear boundaries, or represent a
+                  significant structural change from the normal object (as seen
+                  in the bottle example)
+                </li>
+                <li>
+                  <strong>Poor performance cases:</strong> SAM struggles with
+                  textured surfaces (carpet), subtle color variations, small
+                  anomalies, or cases where the anomaly resembles normal
+                  variations in the product (plate)
+                </li>
+              </ul>
+
+              <p>
+                These findings strongly suggest that RLHF can significantly
+                improve SAM's anomaly detection capabilities by leveraging human
+                expertise to correct both segmentation errors and confidence
+                miscalibrations. By learning from expert feedback on diverse
+                anomaly types, we can transform SAM from a general-purpose
+                segmentation model into a specialized industrial anomaly
+                detector that accurately identifies defects while properly
+                calibrating its confidence in challenging edge cases.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End Phase 1 Conclusion Section -->
+    </section>
+    <!-- End Phase 1 Conclusion Section -->
 
-<!-- 
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Phase 2 Conclusions</h2>
+            <div class="content has-text-justified">
+              <p>
+                Our data preprocessing and standardization efforts have laid a
+                crucial foundation for improving SAM's performance in industrial
+                anomaly detection:
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Phase 1 Conclusion Section -->
+
+    <!-- 
 Youtube video
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -381,9 +583,8 @@ Youtube video
 End youtube video 
 -->
 
-
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
+    <!-- Video carousel -->
+    <!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
@@ -410,66 +611,66 @@ End youtube video
     </div>
   </div>
 </section> -->
-<!-- End video carousel -->
+    <!-- End video carousel -->
 
+    <!-- Paper poster -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title">Poster to be added soon</h2>
 
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster to be added soon</h2>
-
-      <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
           </iframe> -->
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </section>
+    <!--End paper poster -->
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>BibTex Code Here</code></pre>
+      </div>
+    </section>
+    <!--End BibTex citation -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This page was built using the
+                <a
+                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                  target="_blank"
+                  >Academic Project Page Template</a
+                >
+                which was adopted from the
+                <a href="https://nerfies.github.io" target="_blank">Nerfies</a>
+                project page. You are free to borrow the source code of this
+                website, we just ask that you link back to this page in the
+                footer. <br />
+                This website is licensed under a
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  target="_blank"
+                  >Creative Commons Attribution-ShareAlike 4.0 International
+                  License</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
-
   </body>
-  </html>
-
-
-
-
-
+</html>
