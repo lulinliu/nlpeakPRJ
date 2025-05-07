@@ -19,9 +19,8 @@
     <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
     <meta
       name="twitter:description"
-      content="TWITTER BANNER DESCRIPTION META TAG"
-    />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+
+   Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
     <meta
       name="twitter:image"
       content="static/images/your_twitter_banner_image.png"
@@ -86,7 +85,7 @@
                   ><sup>*</sup>,
                   </span>
                 <span class="author-block">
-                  <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank"
+                  <a href="https://github.com/lulinliu" target="_blank"
                     >Lulin Liu</a
                   ><sup>*</sup>,</span
                 >
@@ -122,14 +121,14 @@
                     <!-- Supplementary PDF link -->
                     <span class="link-block">
                     <a
-                      href="static/pdfs/supplementary_material.pdf"
+                      href="static/pdfs/5541_poster_final_version.pptx.pdf"
                       target="_blank"
                       class="external-link button is-normal is-rounded is-dark"
                     >
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Poster</span>
                     </a>
                   </span>
 
@@ -216,13 +215,13 @@ End teaser video
 <!-- End paper abstract -->
 
     <!-- Project Progress Section -->
-    <section class="section">
-      <div class="container is-max-desktop">
+    <!-- <section class="section"> -->
+      <!-- <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Project Progress</h2>
 
-            <!-- Phase 1 -->
+            Phase 1
             <h3 class="title is-4">
               Phase 1: Benchmarking SAM's Anomaly Segmentation
             </h3>
@@ -282,11 +281,11 @@ End teaser video
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- End Project Progress Section -->
 
     <!-- Image carousel section with summaries -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -346,11 +345,11 @@ End teaser video
   </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- End image carousel -->
 
     <!-- Phase 2 Section -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
@@ -440,11 +439,11 @@ End teaser video
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- End Phase 2 Section -->
 
     <!-- Future Work Section -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
@@ -521,194 +520,193 @@ End teaser video
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- End Future Work Section -->
 
-    <!-- Technical Decisions Section -->
+    <!-- Methodology Section - Updated with new pipeline image -->
     <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Feedback from TA</h2>
+            <h2 class="title is-3">Methodology</h2>
             <div class="content has-text-justified">
-              <!-- <h3 class="title is-4">Choice of Optimization Method</h3> -->
-              
-              <h4 class="title is-5">The PPO algorithm may not be compatible with SAM, so it is recommended to use DPO.</h4>
               <p>
-                In designing our RLHF pipeline, we carefully considered different optimization approaches. 
-                While Proximal Policy Optimization (PPO) is commonly used in RLHF systems, we chose 
-                Direct Preference Optimization (DPO) for several compelling reasons:
+                We've implemented a three-stage RLHF-based segmentation fine-tuning workflow to improve SAM's anomaly detection capabilities:
               </p>
               
-              <ul>
-                <li>
-                  <strong>Better Preference Learning:</strong>
-                  <ul>
-                    <li>DPO learns directly from human preference data without requiring complex reward modeling</li>
-                    <li>More straightforward optimization towards human preferences</li>
-                    <li>Cleaner alignment between training objective and desired outcomes</li>
-                  </ul>
-                </li>
-                
-                <li>
-                  <strong>Implementation Advantages:</strong>
-                  <ul>
-                    <li>Simpler architecture without need for separate reward model</li>
-                    <li>Fewer hyperparameters to tune compared to PPO</li>
-                    <li>More straightforward training pipeline</li>
-                  </ul>
-                </li>
-                
-                <li>
-                  <strong>Training Stability:</strong>
-                  <ul>
-                    <li>More stable training process with fewer failure modes</li>
-                    <li>Avoids common PPO issues like policy collapse</li>
-                    <li>Generally faster convergence to desired behavior</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4 class="title is-5">Implementation Strategy</h4>
+              <div class="columns is-centered">
+                <div class="column is-full">
+                  <img src="static/images/pipeline.png" alt="Three-stage RLHF Pipeline" class="center-block" style="width: 100%; margin-bottom: 1.5rem;">
+                  <p class="has-text-centered is-size-6">Overview of our three-stage RLHF workflow for segmentation fine-tuning</p>
+                </div>
+              </div>
+              
               <p>
-                Our DPO implementation focuses on pairwise preference learning:
+                As shown in our pipeline diagram, our approach consists of three key stages that work together to leverage human feedback for improving model performance:
+              </p>
+              
+              <h3 class="title is-5">Generation Stage</h3>
+              <p>
+                In the first stage, we combine SFT (Supervised Fine-Tuning) images with prompts to generate segmentation candidates. A fine-tuned SAM model processes these inputs through the SAM Mask Generation component, producing multiple segmentation masks for each prompt (shown as "Per-prompt Responses" in the diagram). This stage establishes a foundation of domain-specific knowledge through supervised learning.
+              </p>
+              
+              <div class="columns is-centered">
+                <div class="column is-half">
+                  <img src="static/images/sam_triplet_sample.png" alt="SAM Triplet Sample" class="center-block" style="width: 100%; margin-bottom: 1.5rem;">
+                  <p class="has-text-centered is-size-6">Example of a SAM-compatible triplet training sample</p>
+                </div>
+              </div>
+              
+              <h3 class="title is-5">Annotation Stage</h3>
+              <p>
+                The second stage introduces human judgment into the pipeline. As illustrated in the middle section of our diagram, the SFT images and corresponding mask candidates from the Generation stage are presented to human annotators who rank the segmentation options according to quality. This Human Ranking process transforms unordered segmentation candidates into preference-ranked responses, creating valuable training signal for the next stage.
+              </p>
+              <p>
+                Our annotation process followed a structured rubric focusing on:
               </p>
               <ul>
-                <li>Collection of paired segmentation samples with human preferences</li>
-                <li>Direct optimization of model parameters based on preference pairs</li>
-                <li>Integration with existing segmentation pipeline</li>
+                <li>Coverage of the anomalous region</li>
+                <li>Boundary accuracy</li>
+                <li>Over-segmentation or under-segmentation</li>
+                <li>Presence of noise or spurious artifacts</li>
               </ul>
-
+              
+              <h3 class="title is-5">Optimization Stage</h3>
               <p>
-                This approach allows us to maintain the strengths of SAM's segmentation capabilities 
-                while effectively incorporating human feedback for domain-specific optimization. The 
-                simplified training process also enables faster iteration and easier debugging during 
-                development.
+                The final stage, shown in the rightmost section of our pipeline diagram, leverages the preference data to enhance model performance. Starting with the SFT Policy (our supervised fine-tuned model), we apply Direct Preference Optimization (DPO) to align the model with human judgments. This process takes the ranked responses from the Annotation stage and optimizes the policy to favor segmentations that human annotators preferred, resulting in an Optimized Policy that better reflects human perceptual preferences.
+              </p>
+              <p>
+                Unlike traditional reinforcement learning approaches that require complex reward modeling, DPO directly learns from pairwise preferences, making it particularly suitable for segmentation tasks where quality assessment is often subjective and multifaceted.
+              </p>
+              
+              <div class="columns is-centered">
+                <div class="column is-full">
+                  <div class="columns">
+                    <div class="column is-half">
+                      <img src="static/images/sft_train.png" alt="SFT-SAM Training Loss" class="center-block" style="width: 100%; margin-bottom: 1rem;">
+                      <p class="has-text-centered is-size-6">SFT-SAM training loss</p>
+                    </div>
+                    <div class="column is-half">
+                      <img src="static/images/dpo_train.png" alt="VisionSAM Training Loss" class="center-block" style="width: 100%; margin-bottom: 1rem;">
+                      <p class="has-text-centered is-size-6">VisionSAM (DPO) training loss</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <p>
+                This end-to-end pipeline represents a novel approach to fine-tuning vision foundation models, leveraging human feedback to improve specialized tasks like industrial anomaly segmentation without requiring extensive labeled datasets.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Technical Decisions Section -->
+    <!-- End Methodology Section -->
 
-    <!-- Phase 1 Conclusion Section -->
+    <!-- Experimental Results Section -->
     <section class="section hero is-light">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Phase 1 Conclusions</h2>
+            <h2 class="title is-3">Experimental Results</h2>
             <div class="content has-text-justified">
+              <h3 class="title is-5">Performance Comparison</h3>
               <p>
-                Our comprehensive benchmarking of SAM across various industrial
-                anomaly datasets reveals critical insights about its
-                capabilities and limitations:
+                Our experiments evaluated three model variants:
               </p>
-
-              <h3 class="title is-5">
-                Object Segmentation vs. Anomaly Detection
-              </h3>
+              <ol>
+                <li><strong>Original SAM</strong>: The unmodified ViT-B foundation model</li>
+                <li><strong>SFT-SAM</strong>: SAM fine-tuned with supervised learning on our anomaly dataset</li>
+                <li><strong>VisionSAM</strong>: Our RLHF-enhanced model using DPO</li>
+              </ol>
+              
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>IoU</th>
+                    <th>Dice</th>
+                    <th>Parameters</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SAM</td>
+                    <td>0.5818</td>
+                    <td>0.7049</td>
+                    <td>357.1 M</td>
+                  </tr>
+                  <tr>
+                    <td>SFT-SAM</td>
+                    <td>0.6584</td>
+                    <td>0.7737</td>
+                    <td>357.1 M</td>
+                  </tr>
+                  <tr>
+                    <td>VisionSAM</td>
+                    <td>0.6612 ↑</td>
+                    <td>0.7790 ↑</td>
+                    <td>375.1 M</td>
+                  </tr>
+                </tbody>
+              </table>
+              
               <p>
-                SAM demonstrates exceptional proficiency in general object
-                segmentation tasks where objects have clear boundaries and
-                distinct features. However, it struggles significantly with
-                industrial anomaly detection for several reasons:
+                Compared to the original SAM, our SFT-SAM achieved substantial performance gains with an IoU improvement of approximately +13.17% and a Dice improvement of +9.76%. This demonstrates the effectiveness of domain-specific supervised fine-tuning.
               </p>
-              <ul>
-                <li>
-                  Anomalies often present subtle variations from normal
-                  appearances rather than distinct object boundaries
-                </li>
-                <li>
-                  SAM's training data primarily focused on natural images rather
-                  than industrial surfaces and defects
-                </li>
-                <li>
-                  The zero-shot nature of SAM lacks domain-specific knowledge
-                  about what constitutes an "anomaly" in different industrial
-                  contexts
-                </li>
-              </ul>
-
-              <h3 class="title is-5">Confidence Calibration Issues</h3>
+              
               <p>
-                Our analysis revealed a critical disconnect between SAM's
-                segmentation performance and its confidence scores. In many
-                cases, SAM produces high-confidence predictions for incorrectly
-                segmented anomalies (as demonstrated in the carpet example) or
-                low-confidence predictions for correctly identified anomalies
-                (as shown in the hazelnut example). This misalignment between
-                confidence and accuracy presents an opportunity for RLHF to
-                improve the model by:
+                After further fine-tuning via RLHF, VisionSAM achieved a modest improvement over SFT-SAM, with an additional +0.43% in IoU and +0.69% in Dice. While this gain indicates that preference-based learning can further refine the model, the overall impact was more subtle than expected.
               </p>
-              <ul>
-                <li>
-                  Calibrating confidence scores to better reflect prediction
-                  quality
-                </li>
-                <li>
-                  Learning from human feedback about what constitutes a correct
-                  anomaly segmentation
-                </li>
-                <li>
-                  Adjusting the decision boundary between normal and anomalous
-                  regions based on expert guidance
-                </li>
-              </ul>
-
-              <h3 class="title is-5">Performance Pattern Analysis</h3>
+              
+              <h3 class="title is-5">Key Findings</h3>
+              
               <p>
-                Our evaluation revealed distinct patterns in SAM's performance:
+                Interestingly, we discovered that applying DPO directly to the original SAM without prior supervised fine-tuning led to performance degradation. This RLHF-SAM variant showed a decrease of 2.27% in IoU and 1.67% in Dice compared to the original SAM.
               </p>
-              <ul>
-                <li>
-                  <strong>Good performance cases:</strong> SAM excels when
-                  anomalies have high contrast, clear boundaries, or represent a
-                  significant structural change from the normal object (as seen
-                  in the bottle example)
-                </li>
-                <li>
-                  <strong>Poor performance cases:</strong> SAM struggles with
-                  textured surfaces (carpet), subtle color variations, small
-                  anomalies, or cases where the anomaly resembles normal
-                  variations in the product (plate)
-                </li>
-              </ul>
-
+              
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>IoU</th>
+                    <th>Dice</th>
+                    <th>Parameters</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SAM</td>
+                    <td>0.5818</td>
+                    <td>0.7049</td>
+                    <td>357.1 M</td>
+                  </tr>
+                  <tr>
+                    <td>RLHF-SAM (DPO only)</td>
+                    <td>0.5686 ↓</td>
+                    <td>0.6931 ↓</td>
+                    <td>375.1 M</td>
+                  </tr>
+                </tbody>
+              </table>
+              
               <p>
-                These findings strongly suggest that RLHF can significantly
-                improve SAM's anomaly detection capabilities by leveraging human
-                expertise to correct both segmentation errors and confidence
-                miscalibrations. By learning from expert feedback on diverse
-                anomaly types, we can transform SAM from a general-purpose
-                segmentation model into a specialized industrial anomaly
-                detector that accurately identifies defects while properly
-                calibrating its confidence in challenging edge cases.
+                This finding suggests that preference-based fine-tuning requires a strong task-specific foundation to be effective. Without prior supervised grounding on domain-relevant demonstrations, DPO optimization may struggle to align preference gradients with representations that aren't yet sensitive to fine-grained anomaly features.
+              </p>
+              
+              <p>
+                Our results emphasize the importance of using supervised fine-tuning as a warm start before applying RLHF techniques in dense prediction tasks like segmentation, where alignment targets are less well-defined than in language generation.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Phase 1 Conclusion Section -->
+    <!-- End Experimental Results Section -->
 
-    <section class="section hero is-light">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">Phase 2 Conclusions</h2>
-            <div class="content has-text-justified">
-              <p>
-                Our data preprocessing and standardization efforts have laid a
-                crucial foundation for improving SAM's performance in industrial
-                anomaly detection:
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Phase 1 Conclusion Section -->
+  
+    <!-- End Phase 2 Conclusions Section -->
 
     <!-- 
 Youtube video
@@ -770,7 +768,7 @@ End youtube video
         
           <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
           </iframe> -->
-        </div>
+      </div>
     </div>
   </section>
 <!--End paper poster -->
